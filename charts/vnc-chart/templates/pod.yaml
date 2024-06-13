@@ -1,0 +1,19 @@
+{{- $namespace := .Values.classroom }}
+{{- range $i, $e := until (int .Values.replicaCount) }}
+apiVersion: v1
+kind: Pod
+metadata:
+  namespace: "{{ $namespace }}"
+  labels:
+    run: vnc-{{ $i }}
+  name: vnc-{{ $i }}
+spec:
+  containers:
+  - image: consol/debian-xfce-vnc:latest
+    name: vnc-{{ $i }}
+    ports:
+    - containerPort: 6901
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+---
+{{- end }}

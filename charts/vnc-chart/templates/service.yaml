@@ -1,0 +1,20 @@
+{{- $namespace := .Values.classroom }}
+{{- range $i, $e := until (int .Values.replicaCount) }}
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: vnc-{{ $i }}
+  name: vnc-svc-{{ $i }}
+  namespace: "{{ $namespace }}"
+spec:
+  ports:
+  - port: 6901
+    protocol: TCP
+    targetPort: 6901
+  selector:
+    run: vnc-{{ $i }}
+  sessionAffinity: None
+  type: NodePort
+---
+{{- end }}
