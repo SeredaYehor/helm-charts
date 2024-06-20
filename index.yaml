@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  controltower:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-06-20T07:40:56.052162849Z"
+    description: A Helm chart for Kubernetes
+    digest: 998ec66afeee16a1e27ed57335afdce8ba60b0a383f8b90039553678ca68b5d7
+    name: controltower
+    type: application
+    urls:
+    - https://github.com/SeredaYehor/helm-charts/releases/download/controltower-0.1.0/controltower-0.1.0.tgz
+    version: 0.1.0
   vnc-dev:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -11,4 +22,4 @@ entries:
     urls:
     - https://github.com/SeredaYehor/helm-charts/releases/download/vnc-dev-0.1.0/vnc-dev-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-13T15:11:52.642162018Z"
+generated: "2024-06-20T07:40:56.052228418Z"
