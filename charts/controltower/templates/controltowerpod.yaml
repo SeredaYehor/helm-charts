@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: controltower
+  name: controltower
+spec:
+  containers:
+  - image: bitnami/kubectl
+    name: controltower
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
+  restartPolicy: Always
+  serviceAccount: control-pod

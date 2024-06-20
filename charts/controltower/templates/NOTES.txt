@@ -1,0 +1,1 @@
+Helm chart for creating namespaces that represents classrooms and pod for deploying pods in these namespaces.
