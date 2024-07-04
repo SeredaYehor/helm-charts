@@ -1,5 +1,5 @@
 replicaCount: 3
-
+imagePullPolicy: Always
 lectionName: programming
 classroom: test-classroom
 image: consol/debian-xfce-vnc

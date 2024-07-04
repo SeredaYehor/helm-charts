@@ -3,6 +3,7 @@
 {{- $password := .Values.password }}
 {{- $image := .Values.image }}
 {{- $port := .Values.port }}
+{{- $policy := .Values.imagePullPolicy }}
 {{- range $i, $e := until (int .Values.replicaCount) }}
 apiVersion: v1
 kind: Pod
@@ -23,5 +24,6 @@ spec:
       value: {{ $password }}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  imagePullPolicy: {{ $policy }}
 ---
 {{- end }}
