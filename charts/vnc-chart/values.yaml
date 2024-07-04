@@ -1,3 +1,4 @@
 replicaCount: 3
 
 classroom: test-classroom
+image: consol/debian-xfce-vnc
