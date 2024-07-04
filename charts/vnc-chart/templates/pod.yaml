@@ -16,6 +16,7 @@ metadata:
 spec:
   containers:
   - image: {{ $image }}
+    imagePullPolicy: {{ $policy }}
     name: vnc-{{ $i }}
     ports:
     - containerPort: {{ $port }}
@@ -24,6 +25,5 @@ spec:
       value: {{ $password }}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
-  imagePullPolicy: {{ $policy }}
 ---
 {{- end }}
