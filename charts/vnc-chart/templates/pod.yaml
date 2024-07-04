@@ -1,19 +1,26 @@
+{{- $lection := .Values.lectionName }}
 {{- $namespace := .Values.classroom }}
+{{- $password := .Values.password }}
 {{- $image := .Values.image }}
+{{- $port := .Values.port }}
 {{- range $i, $e := until (int .Values.replicaCount) }}
 apiVersion: v1
 kind: Pod
 metadata:
   namespace: "{{ $namespace }}"
   labels:
-    run: vnc-{{ $i }}
+    run: {{ $lection }}-vnc-{{ $i }}
+    lection: {{ $lection }}
   name: vnc-{{ $i }}
 spec:
   containers:
   - image: {{ $image }}
     name: vnc-{{ $i }}
     ports:
-    - containerPort: 6901
+    - containerPort: {{ $port }}
+    env:
+    - name: VNC_PW
+      value: {{ $password }}
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 ---

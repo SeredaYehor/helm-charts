@@ -1,19 +1,21 @@
+{{- $lection := .Values.lectionName }}
 {{- $namespace := .Values.classroom }}
+{{- $port := .Values.port }}
 {{- range $i, $e := until (int .Values.replicaCount) }}
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: vnc-{{ $i }}
-  name: vnc-svc-{{ $i }}
+    run: {{ $lection }}-vnc-{{ $i }}
+  name: {{ $lection }}-vnc-svc-{{ $i }}
   namespace: "{{ $namespace }}"
 spec:
   ports:
-  - port: 6901
+  - port: {{ $port }}
     protocol: TCP
-    targetPort: 6901
+    targetPort: {{ $port }}
   selector:
-    run: vnc-{{ $i }}
+    run: {{ $lection }}-vnc-{{ $i }}
   sessionAffinity: None
   type: NodePort
 ---

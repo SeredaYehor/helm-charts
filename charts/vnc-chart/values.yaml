@@ -1,4 +1,7 @@
 replicaCount: 3
 
+lectionName: programming
 classroom: test-classroom
 image: consol/debian-xfce-vnc
+port: 6901
+password: testsecretpassword
