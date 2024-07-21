@@ -1,21 +1,22 @@
-{{- $lection := .Values.lectionName }}
 {{- $namespace := .Values.classroom }}
 {{- $port := .Values.port }}
+{{- $release := .Release.Name }}
 {{- range $i, $e := until (int .Values.replicaCount) }}
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: {{ $lection }}-vnc-{{ $i }}
-  name: {{ $lection }}-vnc-svc-{{ $i }}
+    run: {{ $release }}-vnc-{{ $i }}
+  name: {{ $release }}-vnc-svc-{{ $i }}
   namespace: "{{ $namespace }}"
 spec:
+  externalTrafficPolicy: Local
   ports:
   - port: {{ $port }}
     protocol: TCP
     targetPort: {{ $port }}
   selector:
-    run: {{ $lection }}-vnc-{{ $i }}
+    run: {{ $release }}-vnc-{{ $i }}
   sessionAffinity: None
   type: NodePort
 ---

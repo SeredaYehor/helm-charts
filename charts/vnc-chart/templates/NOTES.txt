@@ -1,2 +1,34 @@
-This is first dev helm chart for testing purposes only.
+#Before deploying function you should create object namespace for specific class (i.e. 505)
 
+Naming convention
+
+Each chart should be deployed with {lection-name}-{classroom} in order to be able to reuse chart multiple
+times and to have an ability for proper creation of coredns records for each pods service.
+
+Usage
+
+#Deploy workstations for bmtp lection
+helm install bmtp-505 . --set replicaCount=10 --set classroom=505 --set port=5901
+#Get pods from 505 class
+kubectl get pods -n 505
+#Get pods from 505 class with output of worker node
+kubectl get pods -n 505 -o wide
+#Search for free pods by mac address label
+kubectl get pods -n 505 -o wide --selector=mac=none
+#Edit label mac address for pod
+kubectl label pod bmtp-505-vnc-0 mac=aaaa --overwrite -n 505
+#Search for pods by edited mac address label
+kubectl get pods -n 505 -o wide --selector=mac=aaaa
+#Uninstall chart
+helm uninstall bmtp-505
+
+Additional parameter
+
+image = specify docker image for lection i.e. 2_dev_vncxfce
+imagePullPolicy = specify wether k8s should pull image or use from local server
+
+In order to use this params you need to add --set args for each parameter in helm install command.
+You also can provide custom values file with predefined params. It can be used as lection presets.
+
+#Install chart using custom values file
+helm install bmtp-505 . --values custom_values.yaml
