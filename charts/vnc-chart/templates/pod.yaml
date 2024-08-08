@@ -1,4 +1,4 @@
-{{- $namespace := .Values.classroom }}
+{{- $namespace := .Values.classroom | toString }}
 {{- $image := .Values.image }}
 {{- $port := .Values.port }}
 {{- $policy := .Values.imagePullPolicy }}
@@ -6,7 +6,7 @@
 {{- $password := .Values.password }}
 {{- range $i, $e := until (int .Values.replicaCount) }}
 {{- $podname := print $release "-vnc-" $i }}
-{{- $podlookup := (lookup "v1" "Pod" "505" $podname) | default dict }}
+{{- $podlookup := (lookup "v1" "Pod" $namespace $podname) | default dict }}
 apiVersion: v1
 kind: Pod
 metadata:

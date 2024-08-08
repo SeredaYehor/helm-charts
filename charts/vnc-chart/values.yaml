@@ -3,4 +3,5 @@ imagePullPolicy: Always
 classroom: default
 image: consol/debian-xfce-vnc
 password: justfortest
-port: 6901
+port: 5901
+cannonicalName: лекція

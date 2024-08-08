@@ -23,7 +23,8 @@ kubectl get pods -n 505 -o wide --selector=mac=aaaa
 helm uninstall bmtp-505
 #Upgrading chart. You can change value for replicaCount for example increasing number of workstations
 helm upgrade bmtp-505 . --set replicaCount=11 --set classroom=505 --set port=5901
-
+#Get all custom_values of deployed chart
+helm list values -a bmtp-505
 Additional parameter
 
 image = specify docker image for lection i.e. 2_dev_vncxfce
