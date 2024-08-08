@@ -24,6 +24,16 @@ entries:
   vnc-dev:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2024-08-08T09:01:08.544402565Z"
+    description: A Helm chart for Kubernetes
+    digest: 51158efd0b7c1753b6d7df9cc31d3065fdd8307f2b97f55d07971f6c4d34abd5
+    name: vnc-dev
+    type: application
+    urls:
+    - https://github.com/SeredaYehor/helm-charts/releases/download/vnc-dev-0.5.2/vnc-dev-0.5.2.tgz
+    version: 0.5.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2024-07-04T14:47:15.004954803Z"
     description: A Helm chart for Kubernetes
     digest: cacfa2dbd0c17ab46150e6e69f142538f664eaebf9d1b6345a3e05ea3f40d5cc
@@ -72,4 +82,4 @@ entries:
     urls:
     - https://github.com/SeredaYehor/helm-charts/releases/download/vnc-dev-0.1.0/vnc-dev-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-04T14:47:15.004979279Z"
+generated: "2024-08-08T09:01:08.544435126Z"
